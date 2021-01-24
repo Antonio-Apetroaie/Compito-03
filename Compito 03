@@ -1,0 +1,30 @@
+#define aumenta 13
+#define diminuzione 12
+#define led 3
+int lux = 0;
+
+void setup ()
+{
+  Serial.begin (9600);
+  pinMode (aumenta, INPUT);
+  pinMode (diminuzione, INPUT);
+  pinMode (led, OUTPUT);
+}
+
+void loop ()
+{
+  
+  int state_increase = digitalRead (aumento);
+  int state_decrease = digitalRead (diminuzione);
+  
+  if (state_increase == 1 && lux! = 255)
+    lux ++;
+    
+  if (state_decrease == 1 && lux! = 0)
+    lux--;
+  
+  analogWrite (led, lux);
+
+  Serial.println (lux);
+  ritardo (300);
+}
